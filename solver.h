@@ -12,7 +12,6 @@ typedef struct MazeDataStruct {
 	int chunksCache;
 	int chunkSize;
 	int terminatorSize;
-	int debugMode;
 }MazeData;
 
 typedef struct TileStruct {
@@ -24,5 +23,15 @@ typedef struct ChunkStruct {
 	Tile** tiles;
 	int chunkIndex;
 }Chunk;
+
+void MoveToPositionCache(MazeData* maze, Chunk* chunks, int startPosition, int position);
+
+int ExistsInCache(MazeData* maze, Chunk* chunks, int targetIndex);
+
+int GetChunkIndex(MazeData* maze, int y, int x);
+
+void SwapValues(MazeData* maze, Chunk* first, Chunk* second);
+
+void FillWithDistances(MazeData* maze);
 
 #endif
