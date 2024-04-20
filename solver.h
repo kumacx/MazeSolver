@@ -12,7 +12,10 @@ typedef struct MazeDataStruct {
 	int chunksCache;
 	int chunkSize;
 	int terminatorSize;
-}MazeData;
+	int debugMode;
+	int t;
+	int counter;
+} MazeData;
 
 typedef struct TileStruct {
 	char walls[5];
