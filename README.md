@@ -45,29 +45,51 @@ Aby uzyskać pomoc, wpisz:
 ```
 
 Treść instrukcji help:
+
 Program znajduje najszybsza sciezke w labiryncie i zapisuje ja do pliku
+
+
 Argumenty:
+
 -t <tryb pracy>
+
 0 - Wejscie z pliku tekstowego, wyjscie w pliku tekstowym (flaga -o wymagana)
+
 1 - Wejscie z pliku binarnego, wyjscie w pliku binarnym (flaga -o zabroniona)
+
 2 - Wejscie z pliku binarnego, wyjscie w pliku tekstowym (flaga -o wymagana)
+
+
 
 -n <nazwa pliku z labiryntem> (wymagany)
 	
+
 -o <nazwa pliku wynikowego> (czy wymagane zalezy od flagi t)
+
 "W przypadku braku domyslnym plikiem jest output.txt
 	
+
 -s <rozmiar chunku> (niewymagany)
+
 Rozmiar chunku\nIm wiecej, tym wieksze zuzycie pamieci RAM
+
 Warunki: s >= 2
 	
+
 -c <rozmiar cache> (niewymagany)
+
 Liczba chunkow przechowywana w pamieci programu\nIm wiecej, tym wieksze zuzycie pamieci RAM
+
 Warunki: 2 <= c <= liczba chunkow w labiryncie
 	
+
 -r <rozmiar rekordu> (niewymagany)
+
 Definiuje rozmiar jednego rekordu w pliku\nIm wiecej, tym wieksze zapelnienie dysku podczas dzialania programu
+
 Warunki: r >= 15
 	
+
 -d (niewymagany)
+
 Uruchamia program w trybie debug mode
