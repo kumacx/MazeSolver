@@ -8,7 +8,7 @@
 Program **Labsolver** w języku C służy do rozwiązywania labiryntów. Aby ograniczyć używaną przez
 program pamięć, rozwiązywany labirynt dzielony jest na elementy nazywane chunk’ami.
 Program przy szukaniu rozwiązania labiryntu przechodzi przez niego wczytując potrzebne
-w danym momencie chunki. Dla labiryntu o rozmiarach 1024 na 1024 program użyje nie
+w danym momencie chunki. Dla labiryntu o rozmiarach 1024 na 1024 w domyślnych parametrach program użyje nie
 więcej niż 512kB pamięci.
 
 ### Przykład użycia
@@ -22,47 +22,18 @@ Aby uruchomić program, należy postępować zgodnie z poniższymi krokami:
 
 Przykłady użycia:
 ```bash
-./labsolver -l labirynt.txt -f rozwiazanie.txt
-./labsolver -l labirynt.txt -d
+./labsolver [parametry]
 ```
 
----
 
 ## Parametry wejściowe 
-- -h → Wywołanie instrukcji help 
-- -l [nazwa-pliku] → Nazwa rozwiązywanego labiryntu 
-- -f [nazwa-pliku] → Nazwa powstałego pliku wyjściowego 
-- -d → Flaga powodująca wyświetlanie błędów na stdout zamiast w pliku log.txt
+
+Parametry wejściowe dostępne są w instrukcji HELP.
 
 ## Dane wejściowe i wyjściowe
 
-Labirynt jest reprezentowany w formie tekstowej, gdzie:
-- `P` oznacza punkt wejścia,
-- `K` oznacza punkt wyjścia,
-- `X` oznacza ścianę labiryntu,
-- spacja oznacza miejsce, po którym można się poruszać.
+Labirynt na wejściu i wyjściu przekazywany jest w formie tekstowej lub binarnej.
 
-Program jako wynik generuje plik tekstowy zawierający instrukcje przejścia w formacie:\
-(przykład)\
-START\
-FORWARD 1\
-TURNLEFT\
-FORWARD 4\
-TURNRIGHT\
-FORWARD 3\
-STOP
-
-
-### Obsługa błędów
-
-W przypadku błędów, informacje są zapisywane do pliku `log.txt`. 
-Znaczenia kodów błędów:
-
-- `11` - Zły format labiryntu
-- `12` - Błąd zapisu pliku wyjściowego
-- `13` - Niepoprawny parametr wejściowy
-
-Więcej informacji na temat kodów błędów znajdziesz w dokumentacji programu.
 
 ---
 
@@ -73,4 +44,30 @@ Aby uzyskać pomoc, wpisz:
 ./labsolver -h
 ```
 
-Treść instrukcji help znajdziesz w dokumentacji programu.
+Treść instrukcji help:
+Program znajduje najszybsza sciezke w labiryncie i zapisuje ja do pliku
+Argumenty:
+-t <tryb pracy>
+0 - Wejscie z pliku tekstowego, wyjscie w pliku tekstowym (flaga -o wymagana)
+1 - Wejscie z pliku binarnego, wyjscie w pliku binarnym (flaga -o zabroniona)
+2 - Wejscie z pliku binarnego, wyjscie w pliku tekstowym (flaga -o wymagana)
+
+-n <nazwa pliku z labiryntem> (wymagany)
+	
+-o <nazwa pliku wynikowego> (czy wymagane zalezy od flagi t)
+"W przypadku braku domyslnym plikiem jest output.txt
+	
+-s <rozmiar chunku> (niewymagany)
+Rozmiar chunku\nIm wiecej, tym wieksze zuzycie pamieci RAM
+Warunki: s >= 2
+	
+-c <rozmiar cache> (niewymagany)
+Liczba chunkow przechowywana w pamieci programu\nIm wiecej, tym wieksze zuzycie pamieci RAM
+Warunki: 2 <= c <= liczba chunkow w labiryncie
+	
+-r <rozmiar rekordu> (niewymagany)
+Definiuje rozmiar jednego rekordu w pliku\nIm wiecej, tym wieksze zapelnienie dysku podczas dzialania programu
+Warunki: r >= 15
+	
+-d (niewymagany)
+Uruchamia program w trybie debug mode
