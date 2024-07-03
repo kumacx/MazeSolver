@@ -1,11 +1,11 @@
 
-# Labsolver
+# Mazesolver
 
 ---
 
 ## Zasady działania
 
-Program **Labsolver** w języku C służy do rozwiązywania labiryntów. Aby ograniczyć używaną przez
+Program **Mazesolver** w języku C służy do rozwiązywania labiryntów. Aby ograniczyć używaną przez
 program pamięć, rozwiązywany labirynt dzielony jest na elementy nazywane chunk’ami.
 Program przy szukaniu rozwiązania labiryntu przechodzi przez niego wczytując potrzebne
 w danym momencie chunki. Dla labiryntu o rozmiarach 1024 na 1024 w domyślnych parametrach program użyje nie
